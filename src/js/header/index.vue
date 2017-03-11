@@ -1,6 +1,5 @@
 <template>
   <div class="header">
-
     <el-menu mode='horizontal' class='header-nav'>
       <el-menu-item class='menu-item' index='0'>
         Dota
@@ -14,7 +13,6 @@
 
 <script>
   export default {
-    name: 'site-header'
   }
 
 </script>
@@ -23,16 +21,18 @@
   .header {
     position: fixed;
     width: 100%;
-    height: 65px;
-    border-bottom: 2px solid #20a0ff;
+    height: 80px;
+    border-bottom: 2px solid $activityColor;
   }
   
   .header-nav {
-    height: 50px;
+    position: absolute;
     width: 1200px;
     margin: 0 auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
     font-weight: bold;
-    margin-top: 15px;
     background: transparent;
   }
   

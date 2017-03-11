@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import {Button, Menu, MenuItem} from 'element-ui'
-import './css/index.scss'
+import '@/css/index.scss'
 
 Vue.use(Button)
 Vue.use(Menu)
