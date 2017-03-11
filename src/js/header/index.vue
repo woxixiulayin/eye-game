@@ -1,25 +1,28 @@
 <template>
   <div class="header">
-    <el-menu mode='horizontal' :default-active="'0'" class='header-nav' @select='select'
-    >
-      <el-menu-item class='menu-item' index='0'>
-        DOTA
-      </el-menu-item>
-      <el-menu-item class='menu-item' index='1'>
-        LOL
-      </el-menu-item>
-      <el-menu-item class='menu-item' index='2'>
-        炉石
+    <el-menu mode='horizontal' :default-active="currentIndex" class='header-nav' @select='select'>
+      <el-menu-item v-for='(item, index) in items' :index='String(index)' class="menu-item" :key="index"
+      >
+        {{item}}
       </el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
+  import {
+    gameCategory
+  } from 'js/config'
 
   export default {
+    data: () => {
+      return {
+        items: Object.keys(gameCategory),
+        currentIndex: '0'
+      }
+    },
     methods: {
-      select: index => console.log(index)
+      select: index => (this.currentIndex = index)
     }
   }
 
@@ -50,7 +53,7 @@
     font-size: 17px;
     // color : #333;
   }
-
+  
   .is-active {
     border-bottom: 5px solid #20a0ff;
   }

@@ -1,17 +1,27 @@
 <template>
 <div class="live-section">
-<el-tabs v-model="activeName" @tab-click="handleClick">
-    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+<el-tabs @tab-click="handleClick" v-model="activeName">
+    <el-tab-pane v-for='(site,index) in gameSites' :label="site" :name="site" :key='index'>用户管理
+
+    </el-tab-pane>
   </el-tabs>
 </div>
 </template>
 
 <script>
-export default {
+import {gameCategory} from 'js/config'
 
+export default {
+  data: () => {
+    return {
+      gameSites: gameCategory['DOTA'],
+      activeName: '熊猫'
+    }
+  },
+
+  methods: {
+    handleClick: e => console.log(this.data)
+  }
 }
 </script>
 
