@@ -22,6 +22,6 @@ export default {
   height: 100%;
   right: 0;
   width: $rightSideWidth;
-  border-left: 1px solid $activityColor;
+  border-left: 1px solid $activeColor;
 }
 </style>
