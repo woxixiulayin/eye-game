@@ -1,7 +1,7 @@
 <template>
 <div class="main-content">
-    <rankSection />
     <liveSection />
+    <rankSection />
 </div>
 </template>
 
@@ -22,7 +22,11 @@ export default {
 @import "~@/css/variable.scss";
 
 .main-content {
-  margin-top: $headerHeight;
-  margin-right: $rightSideWidth;
+  // margin-top: $headerHeight+1;
+  // margin-right: $rightSideWidth;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 100%;
 }
 </style>

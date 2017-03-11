@@ -31,20 +31,17 @@
 <style lang="scss" scoped>
   @import "~@/css/variable.scss";
   .header {
-    position: fixed;
-    top: 0;
+    display: flex;
     width: 100%;
-    height: $headerHeight;
+    // height: $headerHeight;
+    padding-top: 20px;
+    flex-shrink: 0;
     border-bottom: 2px solid $activeColor;
   }
   
   .header-nav {
-    position: absolute;
-    width: 1200px;
-    margin: 0 auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    max-width: 1200px;
+    margin:  0 auto;
     font-weight: bold;
     background: transparent;
   }

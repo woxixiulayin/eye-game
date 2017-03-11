@@ -27,6 +27,6 @@ export default {
 
 <style>
 .live-section {
-  width: 100%;
+  flex-grow: 1;
 }
 </style>

@@ -25,5 +25,8 @@ export default {
   text-align: right;
   color: #2c3e50;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 </style>

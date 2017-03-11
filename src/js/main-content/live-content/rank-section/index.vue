@@ -17,11 +17,10 @@ export default {
 @import "~@/css/variable.scss";
 
 .rank-section {
-  position: fixed;
-  top:80px;
   height: 100%;
-  right: 0;
   width: $rightSideWidth;
   border-left: 1px solid $activeColor;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 </style>
