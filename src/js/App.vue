@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <global-header />
+    <router-view>
+    </router-view>
   </div> 
 </template>
 
 <script>
+import Header from 'js/header'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'global-header': Header
+  }
 }
 </script>
 
@@ -17,8 +24,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: right;
   color: #2c3e50;
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
+  position: relative;
 }
 </style>

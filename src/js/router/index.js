@@ -1,17 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import mheader from '../header'
-import RankSection from 'js/maincontent/rank-section'
+import liveContent from 'js/main-content/live-content'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [{
-    path: '/',
-    component: mheader,
-    children: [{
-      path: '/',
-      component: RankSection
-    }]
+    path: '/:game',
+    component: liveContent
   }]
 })

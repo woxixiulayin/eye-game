@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "allowSyntheticDefaultImports": true,
+        "module": "commonjs"
+    },
+    "files": [
+        "./"
+    ],
+    "typeAcquisition": {
+      "include": [
+        "element-ui"
+      ]
+    }
+}

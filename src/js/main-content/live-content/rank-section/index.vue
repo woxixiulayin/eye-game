@@ -14,10 +14,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@/css/variable.scss";
+
 .rank-section {
   position: fixed;
   top:80px;
-  width: 350px;
+  height: 100%;
+  right: 0;
+  width: $rightSideWidth;
   border-left: 1px solid $activityColor;
 }
 </style>
