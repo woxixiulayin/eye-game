@@ -18,8 +18,9 @@ export default {
 
 .rank-section {
   height: 100%;
-  width: $rightSideWidth;
+  // width: $rightSideWidth;
   border-left: 1px solid $activeColor;
+  flex-basis: $rightSideWidth;
   flex-grow: 0;
   flex-shrink: 0;
 }

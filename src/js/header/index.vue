@@ -1,10 +1,11 @@
 <template>
   <div class="header">
-    <el-menu mode='horizontal' :default-active="currentIndex" class='header-nav' @select='select'>
-      <el-menu-item v-for='(item, index) in items' :index='String(index)' class="menu-item" :key="index"
-      >
-        {{item}}
+    <el-menu mode='horizontal' :default-active="`0`" class='header-nav'>
+      <router-link :to="`${item}`" v-for='(item, index) in items' :key="index">
+        <el-menu-item :index='String(index)' class="menu-item">
+          {{item}}
       </el-menu-item>
+      </router-link>
     </el-menu>
   </div>
 </template>
@@ -17,12 +18,8 @@
   export default {
     data: () => {
       return {
-        items: Object.keys(gameCategory),
-        currentIndex: '0'
+        items: Object.keys(gameCategory)
       }
-    },
-    methods: {
-      select: index => (this.currentIndex = index)
     }
   }
 
@@ -41,7 +38,7 @@
   
   .header-nav {
     max-width: 1200px;
-    margin:  0 auto;
+    margin: 0 auto;
     font-weight: bold;
     background: transparent;
   }

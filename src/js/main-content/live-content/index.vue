@@ -1,7 +1,7 @@
 <template>
 <div class="main-content">
-    <liveSection />
-    <rankSection />
+    <liveSection :currentCategory='$route.params.currentCategory'/>
+    <rankSection :currentCategory='$route.params.currentCategory'/>
 </div>
 </template>
 
