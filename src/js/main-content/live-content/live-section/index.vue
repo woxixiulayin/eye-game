@@ -4,7 +4,7 @@
       :key='categoryItem'>
       <el-tab-pane v-for='(site,index) in categorySites[currentCategory]' :label="site" :name="site" :key='site'>
         <div class="video-list">
-          <video-item v-for='item in 10' :key='item' />
+          <video-item v-for='item in Math.round(Math.random()*10)' :key='item' :itemWidth='itemWidth' />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -15,6 +15,22 @@
   import store from 'js/store'
   import videoItem from './video'
 
+  const videoMaxWidth = 380
+  const videoMinWidth = 220
+  const itemMargin = 10
+  const listPadding = 5
+
+  function getItemWidth (width) {
+    let itemWidth = videoMinWidth
+    for (var i = 0; i < 7; i++) {
+      let tempWidth = (width - i * itemMargin - listPadding * 2) / i
+      if (tempWidth < videoMaxWidth && tempWidth > videoMinWidth) {
+        itemWidth = tempWidth
+        break
+      }
+    }
+    return itemWidth - 1
+  }
   export default {
     props: ['currentCategory'],
     data: () => {
@@ -23,7 +39,8 @@
       return {
         categoryList: globalState.categoryList,
         categorySites: globalState.categorySites,
-        currentSiteIndexMap: new Map(globalState.categoryList.map(category => [category, 0]))
+        currentSiteIndexMap: new Map(globalState.categoryList.map(category => [category, 0])),
+        itemWidth: getItemWidth(window.innerWidth - 350)
       }
     },
     computed: {
@@ -40,17 +57,16 @@
       console.log(liveSection)
       // const that = this
       const reSizeIfWidthChange = (() => {
-        let lastWidth = liveSection.clientWidth
+        let lastWidth = Math.floor(liveSection.clientWidth)
         return () => {
-          let width = liveSection.clientWidth
+          let width = Math.floor(liveSection.clientWidth)
           if (width !== lastWidth) {
             lastWidth = width
-            console.log(width)
+            this.itemWidth = getItemWidth(width)
           }
         }
       })()
-
-      setInterval(reSizeIfWidthChange, 500)
+      setInterval(reSizeIfWidthChange, 400)
     },
     methods: {
       handleClick: () => {}
@@ -66,11 +82,9 @@
   }
   
   .video-list {
-    display: inline-flex;
     flex-wrap: wrap;
-    flex-grow: 0;
-    justify-content: center;
-    padding: 10px 20px;
+    padding: 5px;
+    text-align: left;
   }
   
   .video-item-wrap {

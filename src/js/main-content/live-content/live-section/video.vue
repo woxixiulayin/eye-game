@@ -1,5 +1,5 @@
 <template>
-  <li class="live-item">
+  <li class="live-item" :style="{width: itemWidth +'px'}">
     <div class="video-cover">
       <img :src='img' alt="" class="video-img" />
       <div class="play-mask"></div>
@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    props: ['video'],
+    props: ['video', 'itemWidth'],
     data: () => {
       return {
         name: '灰灰',
@@ -24,6 +24,8 @@
         link: 'http://www.douyu.com/xiaonai',
         img: 'https://rpic.douyucdn.cn/a1610/24/20/224460_161024205221.jpg'
       }
+    },
+    computed: {
     }
   }
 
@@ -31,15 +33,16 @@
 
 <style lang='scss' scoped>
   .live-item {
+    //max 320px
+    //min 250px
     height: 215px;
-    flex-basis: 290px;
-    flex-grow: 1;
-    flex-shrink: 0;
+    // flex-basis: 250px;
     border: 1px solid black;
     background: white;
     margin: 5px 5px;
-    display: flex;
+    display: inline-flex;
     flex-flow: row wrap;
+    overflow: hidden;
     .video-cover {
       position: relative;
       width: 100%;
