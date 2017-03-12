@@ -1,10 +1,7 @@
 <template>
   <div class="live-section">
-    <el-tabs v-for='categoryItem in categoryList'
-    v-show='currentCategory===categoryItem'
-    @tab-click="handleClick"
-    :value='currentSiteName'
-    :key='categoryItem'>
+    <el-tabs v-for='categoryItem in categoryList' v-show='currentCategory===categoryItem' @tab-click="handleClick" :value='currentSiteName'
+      :key='categoryItem'>
       <el-tab-pane v-for='(site,index) in categorySites[currentCategory]' :label="site" :name="site" :key='site'>用户管理
       </el-tab-pane>
     </el-tabs>
@@ -12,19 +9,17 @@
 </template>
 
 <script>
-  import {
-    gameCategory
-  } from 'js/config'
-
-  const categoryList = Object.keys(gameCategory)
+  import store from 'js/store'
 
   export default {
     props: ['currentCategory'],
     data: () => {
+      const globalState = store.state
+
       return {
-        categoryList: categoryList,
-        categorySites: gameCategory,
-        currentSiteIndexMap: new Map(categoryList.map(category => [category, 0]))
+        categoryList: globalState.categoryList,
+        categorySites: globalState.categorySites,
+        currentSiteIndexMap: new Map(globalState.categoryList.map(category => [category, 0]))
       }
     },
     computed: {

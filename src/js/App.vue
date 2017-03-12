@@ -8,9 +8,15 @@
 
 <script>
 import Header from 'js/header'
-
+import store from 'js/store'
+console.log(store)
 export default {
   name: 'app',
+  data: () => {
+    return {
+      store: store
+    }
+  },
   components: {
     'global-header': Header
   }
