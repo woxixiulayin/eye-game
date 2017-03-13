@@ -1,32 +1,28 @@
 <template>
   <li class="live-item" :style="{width: itemWidth +'px'}">
     <div class="video-cover">
-      <img :src='img' alt="" class="video-img" />
+      <img :src='video.img' alt="" class="video-img" />
       <div class="play-mask"></div>
     </div>
-    <div class="video-title">{{title}}</div>
+    <div class="video-title">{{video.title}}</div>
     <div class="video-info">
-      <span class="video-nickname">{{name}}</span>
-      <span class="video-nums">{{nums}}</span>
+      <span class="video-nickname">{{video.name}}</span>
+      <span class="video-nums">{{video.nums}}</span>
     </div>
   </li>
 </template>
 
 <script>
   export default {
-    props: ['video', 'itemWidth'],
-    data: () => {
-      return {
-        name: '灰灰',
-        nums: '629',
-        title: '小奶：单排冲8000！         ' +
-          '               ',
-        link: 'http://www.douyu.com/xiaonai',
-        img: 'https://rpic.douyucdn.cn/a1610/24/20/224460_161024205221.jpg'
-      }
-    },
-    computed: {
-    }
+    props: ['video', 'itemWidth']
+    // return {
+    //   name: '灰灰',
+    //   nums: '629',
+    //   title: '小奶：单排冲8000！         ' +
+    //     '               ',
+    //   link: 'http://www.douyu.com/xiaonai',
+    //   img: 'https://rpic.douyucdn.cn/a1610/24/20/224460_161024205221.jpg'
+    // }
   }
 
 </script>

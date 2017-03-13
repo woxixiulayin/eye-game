@@ -5,7 +5,7 @@
       :key='categoryItem'>
       <el-tab-pane v-for='(site,index) in categorySites[currentCategory]' :label="site" :name="site" :key='site'>
         <div class="video-list">
-          <video-item v-for='item in Math.round(Math.random()*100)' :key='item' :itemWidth='itemWidth' />
+          <video-item v-for='video in videoStore[currentCategory][site]' :key='video' :itemWidth='itemWidth' :video='video'/>
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -41,6 +41,7 @@
       return {
         categoryList: globalState.categoryList,
         categorySites: globalState.categorySites,
+        videoStore: globalState.videoStore,
         currentSiteIndexMap: new Map(globalState.categoryList.map(category => [category, 0])),
         itemWidth: getItemWidth(window.innerWidth - 350)
       }
