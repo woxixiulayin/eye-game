@@ -1,13 +1,15 @@
 <template>
   <div class="live-section" ref='liveSection'>
+    <transition-group name="categoryList" tag="div">
     <el-tabs v-for='categoryItem in categoryList' v-show='currentCategory===categoryItem' @tab-click="handleClick" :value='currentSiteName'
       :key='categoryItem'>
       <el-tab-pane v-for='(site,index) in categorySites[currentCategory]' :label="site" :name="site" :key='site'>
         <div class="video-list">
-          <video-item v-for='item in Math.round(Math.random()*10)' :key='item' :itemWidth='itemWidth' />
+          <video-item v-for='item in Math.round(Math.random()*100)' :key='item' :itemWidth='itemWidth' />
         </div>
       </el-tab-pane>
     </el-tabs>
+    </transition-group>
   </div>
 </template>
 
@@ -81,6 +83,21 @@
     flex-shrink: 1;
   }
   
+  .categoryList-enter-active{
+    transition: all .4s;
+    transform: scale(1);
+  }
+  .categoryList-leave-active {
+    transition: all .4s;
+    opacity: 0;
+  }
+  .categoryList-leave{
+    transform: scale(1);
+  }
+  .categoryList-enter{
+    transform: scale(0);
+  }
+
   .video-list {
     flex-wrap: wrap;
     padding: 5px;
@@ -90,5 +107,6 @@
   .video-item-wrap {
     display: flex;
   }
+
 
 </style>
